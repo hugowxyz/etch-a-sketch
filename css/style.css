@@ -1,0 +1,58 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Title */
+
+#title {
+    text-align: center;
+    display: block;
+    padding: 20px;
+}
+
+/* Game container */
+
+#container {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+/* Row containers */
+.rowContainer {
+    display: block;
+}
+
+/* Squares */
+
+.square {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.active {
+    background-color: red;
+}
+
+/* Controls panel */
+
+#controls {
+    display: block;
+    text-align: center;
+    padding: 15px;
+}
+
+#controls #resetGrid, #controls #changeGridSize {
+    border: none;
+    display: inline-block;
+    padding: 20px;
+    margin: 15px;
+}
+
+#resetGrid:hover, #changeGridSize:hover {
+    cursor: pointer;
+    background-color: lightgreen;
+
+}
