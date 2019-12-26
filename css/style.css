@@ -17,11 +17,14 @@
     display: block;
     margin: auto;
     text-align: center;
+    width: 1000px;
+    height: 1000px;
 }
 
 /* Row containers */
 .rowContainer {
     display: block;
+    
 }
 
 /* Squares */
@@ -29,11 +32,7 @@
 .square {
     display: inline-block;
     border: 1px solid black;
-    padding: 20px;
-}
-
-.active {
-    background-color: red;
+    margin: 0px;
 }
 
 /* Controls panel */
