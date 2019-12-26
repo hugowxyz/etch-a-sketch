@@ -1,11 +1,10 @@
-
 const container = document.querySelector("#container");
 const resetBtn = document.querySelector("#resetGrid");
 const gridSizeBtn = document.querySelector("#changeGridSize");
 
 // Setting square specifications
 
-var squareSize = 16;
+var defaultSquareSize = 16;
 
 // Creating row container
 
@@ -33,16 +32,25 @@ const createSquareObj = () => {
 
 /* Displaying the squares */
 
-for (i=0; i<squareSize; i++) {
-    
-    let rowContainer = createRowContainerObj();
-    container.appendChild(rowContainer);
-    
-    for (j=0; j<squareSize; j++) {
-        let square = createSquareObj()
-        rowContainer.appendChild(square);
+function display(squareSize) {
+    for (i=0; i<squareSize; i++) {
+        
+        let rowContainer = createRowContainerObj();
+        container.appendChild(rowContainer);
+        
+        for (j=0; j<squareSize; j++) {
+            let square = createSquareObj()
+            rowContainer.appendChild(square);
+        }
     }
+}
 
+/* Reset grid */
+
+function resetDisplay(parentNode) {
+    while (parentNode.firstChild) {
+        parentNode.removeChild(parentNode.firstChild);
+    }
 }
 
 // Configuring grid reset
@@ -64,3 +72,24 @@ resetBtn.addEventListener(
 );
 
 // Configuring grid size
+
+gridSizeBtn.addEventListener(
+    "click", (e) => {
+        let gridSize = prompt("How big do you want the square?");
+        gridSize = parseInt(gridSize);
+
+        if (isNaN(gridSize)) { 
+            alert("Value is not a number!");
+            return;
+         }
+
+        if (gridSize < 1 || gridSize > 30) {
+            alert("Invalid grid size (maximum 30 squares)");
+        } else {
+            resetDisplay(container);
+            display(gridSize);
+        }
+    }
+)
+
+display(defaultSquareSize);
